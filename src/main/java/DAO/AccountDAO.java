@@ -39,7 +39,7 @@ public class AccountDAO {
         }
     }
 
-     public Account login(String user, String pass) {
+    public Account login(String user, String pass) {
         String password = hashMD5(pass);
         try {
             ps = conn.prepareStatement("select * from account\n"
@@ -57,6 +57,7 @@ public class AccountDAO {
         }
         return null;
     }
+
     public String getFullName(String username) {
 
         String query = "select fullname from account\n"
@@ -84,6 +85,7 @@ public class AccountDAO {
         }
         return null;
     }
+//CONVERT(NVARCHAR(MAX), HASHBYTES('MD5', '123'), 2)
 
     public static String hashMD5(String input) {
         try {
